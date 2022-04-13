@@ -6,7 +6,7 @@
 
 body {
   min-height: 600px;
-  background-color: white;
+  background-color: rgb(255, 255, 247);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,9 +14,9 @@ body {
 
 .container {
   max-width: 400px;
-  background-color: rgb(235, 222, 205);
+  background-color: rgb(253, 241, 224);
   padding: 50px;
-  border: 32px solid rgb(168, 137, 99);
+  border: 32px solid rgb(175, 152, 128);
 }
 
 .fa-quote-left {
@@ -37,21 +37,24 @@ button {
   padding: 7px;
   padding-left: 13px;
   padding-right: 13px;
-  background-color: rgb(57, 190, 168);
+  background-color: rgb(67, 230, 202);
   margin: 10px;
   cursor: pointer;
   text-rendering: 20px;
-  box-shadow: 0 1px 1px blue;
+}
+
+.button {
+  text-align: center;
 }
 
 button:hover {
-  box-shadow: 0 2px 2px rgb(37, 37, 197);
+  box-shadow: 0 2px 2px rgb(65, 65, 141);
 }
 
 .author {
-  color: rgb(57, 190, 168);
+  color: rgb(72, 201, 179);
   font-size: 15px;
   margin-top: 10px;
-  margin-left: 80px;
+  margin-left: 110px;
   font-weight: bold;
 }
