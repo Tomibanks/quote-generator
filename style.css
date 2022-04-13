@@ -37,7 +37,7 @@ button {
   padding: 7px;
   padding-left: 13px;
   padding-right: 13px;
-  background-color: rgb(77, 170, 155);
+  background-color: rgb(64, 141, 128);
   margin: 10px;
   cursor: pointer;
   text-rendering: 20px;
@@ -47,12 +47,8 @@ button {
   text-align: center;
 }
 
-button:hover {
-  box-shadow: 0 2px 2px rgb(87, 87, 116);
-}
-
 .author {
-  color: rgb(72, 201, 179);
+  color: rgb(64, 141, 128);
   font-size: 15px;
   margin-top: 10px;
   margin-left: 90px;
