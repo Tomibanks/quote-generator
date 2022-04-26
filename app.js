@@ -1,34 +1,63 @@
 //Javascript selectors
 const quoteArea = document.getElementById("generateQuote");
-const authors = document.getElementById("author");
+const authorz = document.getElementById("author");
 
-//async and await function
-async function addQuote() {
-  //Fetch data from API
-  var url = "https://type.fit/api/quotes";
+const fetchPromise = fetch("https://type.fit/api/quotes");
 
-  //Store respnse gotten from API
-  const response = await fetch(url);
+fetchPromise
+  .then((response) => {
+    return response.json();
+  })
+  .then((quotes) => {
+    //console.log(quotes);
 
-  //Store data in array and convert to JSON
-  const allQuotes = await response.json();
-  console.log(allQuotes);
+    //put the object into storage
+    localStorage.setItem("quotes", JSON.stringify(quotes));
 
-  //Generating random numbers between 0 and the length of the array
-  const arrayVar = Math.floor(Math.random() * allQuotes.length);
+    const allQuotes = localStorage.getItem("quotes");
+    //console.log(allQuotes);
 
-  //Store the quote in the random generated index
-  const quote = allQuotes[arrayVar].text;
+    const authors = JSON.parse(allQuotes).map((e) => e.author);
+    // console.log(authors);
+
+    const texts = JSON.parse(allQuotes).map((e) => e.text);
+    //console.log(texts);
+
+    // Generating random numbers between 0 and the length of the array
+    const arrayVar = Math.floor(Math.random() * authors.length);
+    const arrayVar2 = Math.floor(Math.random() * texts.length);
+
+    //store the authors of the respective quote
+    const auth = authors[arrayVar];
+    const test = texts[arrayVar2];
+
+    //Display the quotes and the authors
+    authorz.innerHTML = "- " + auth;
+    quoteArea.innerHTML = test;
+  });
+
+//Add Quote Button
+function addQuote() {
+  const allQuotes = localStorage.getItem("quotes");
+  // console.log(allQuotes);
+
+  const authors = JSON.parse(allQuotes).map((e) => e.author);
+
+  const texts = JSON.parse(allQuotes).map((e) => e.text);
+  // Generating random numbers between 0 and the length of the array
+  const arrayVar = Math.floor(Math.random() * authors.length);
+  const arrayVar2 = Math.floor(Math.random() * texts.length);
 
   //store the authors of the respective quote
-  const auth = allQuotes[arrayVar].author;
+  const auth = authors[arrayVar];
+  const test = texts[arrayVar2];
 
-  //Store the author as annonymous if its null
-  if (auth == null) {
-    authors = "Anonymous";
-  }
+  //store the author as annoymous if null
+  //if (auth == null) {
+  //  authors = "Anonymous";
+  //}
 
   //Display the quotes and the authors
-  authors.innerHTML = "- " + auth;
-  quoteArea.innerText = quote;
+  authorz.innerHTML = "- " + auth;
+  quoteArea.innerHTML = test;
 }

@@ -14,9 +14,9 @@ body {
 
 .container {
   max-width: 400px;
-  background-color: rgb(253, 241, 224);
+  background-color: rgb(255, 241, 221);
   padding: 50px;
-  border: 32px solid rgb(175, 152, 128);
+  border: 32px solid rgb(170, 140, 109);
 }
 
 .fa-quote-left {
@@ -37,7 +37,7 @@ button {
   padding: 7px;
   padding-left: 13px;
   padding-right: 13px;
-  background-color: rgb(64, 141, 128);
+  background-color: rgb(80, 165, 151);
   margin: 10px;
   cursor: pointer;
   text-rendering: 20px;
